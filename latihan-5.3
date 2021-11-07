@@ -1,0 +1,38 @@
+import React, { Component } from 'react';
+import './css/bootstrap.min.css';
+import './App.css';
+import logo from  './logo.svg';
+import Home from './views/Home/Home';
+
+//CLASS COMPONENT
+function Message(){
+return "Pesan didalam Component";
+}
+
+class App extends Component{
+  render(){
+    return(
+      <div>
+        <Message />
+        <Home />
+      </div>
+    );
+  }
+}
+
+export default App;
+
+//Home.js
+import React from 'react';
+
+export default class Home extends React.Component{
+
+    render(){
+        return(
+            <div>
+                <h2>Title Home Component</h2>
+                <p>Hello Home Component</p>
+            </div>
+        )
+    }
+}
