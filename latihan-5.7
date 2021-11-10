@@ -1,0 +1,106 @@
+import React, { Component } from 'react';
+import './css/bootstrap.min.css';
+import './App.css';
+import logo from  './logo.svg';
+import Home from './views/Home/Home';
+import About from './views/About/About';
+import Help from './views/Help/Help';
+import Card from './components/Card/Card';
+
+//App.js
+
+function Mycomponent(props){
+  return <div> {props.children} </div>
+}
+
+<Mycomponent> Belajar Reactjs </Mycomponent>
+class App extends Component {
+  constructor(){
+    super();
+    this.state = {
+      view : 'home'
+    }
+  }
+  render(){
+    const View = ()=>{
+      if(this.state.view == 'home')
+      return <Home name="Eden Hazard" />
+      else if(this.state.view == 'about')
+      return <About />
+      else if(this.state.view == 'card')
+      return <Card />
+    }
+    return (
+      <div>
+        <nav className="navbar navbar-expand-sm bg-dark navbar-dark">
+          <ul className="navbar-nav">
+            <li className="nav-item">
+              <a onClick={()=> this.setState({view : 'home'})} className="nav-link" href="#">
+                Home
+              </a>
+            </li>
+            <li className="nav-item">
+              <a onClick={()=> this.setState({view : 'about'})} className="nav-link" href="#">
+                About
+              </a>
+            </li>
+            <li className="nav-item">
+              <a onClick={()=> this.setState({view : 'card'})} className="nav-link" href="#">
+                Card
+              </a>
+            </li>
+          </ul>
+        </nav>
+
+        <View /> {}
+      </div>
+    );
+  }
+}
+export default App;
+
+//================================================================================================================================
+
+//Card.css
+.card{
+    background: #fff;
+    width: 550px;
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 20px;
+    border-radius: 4px;
+    box-shadow: 1px 1px 2px #aaa;
+}
+
+.card-header{
+    font-weight: bold;
+    color: #365899;
+}
+
+//================================================================================================================================
+
+//Card.js
+
+import React, {Component} from 'react';
+import './Card.css';
+
+export default class Card extends Component{
+  render(){
+    return(
+      <div className="card">
+        <div className="card-header">
+          My Card
+        </div>
+        <div className="card-body">
+          {this.props.children}
+          <card>
+                <p>Build encapsulated components that manage their own state, then compose them to make complex UIs.</p>{}
+            </card>
+        </div>
+      </div>
+    );
+  }
+}
+
+//default sistem ini adalah App.js
